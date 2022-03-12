@@ -9,11 +9,13 @@
       <div class="text">
         <i class="fa fa-paperclip fa-lg icon"></i>
         <input
+          id="msgInput"
           type="text"
           class="send_text"
           placeholder="Введите текст сообщения"
+          v-model="message"
         />
-        <button class="send">
+        <button class="send" @click="onSend()">
           <i class="fa fa-paper-plane fa-lg send_icon"></i>
           <p>Отправить</p>
         </button>
@@ -24,16 +26,36 @@
 </template>
 
 <script>
+import { onMounted } from "@vue/runtime-core";
 export default {
   name: "Chat",
   props: {},
+  mounted() {
+    document.getElementById("msgInput").addEventListener("keydown", (e) => {
+      e.keyCode === 13 && this.onSend();
+    });
+  },
+  unmounted() {
+    document.getElementById("msgInput").removeEventListener("keydown");
+  },
   data() {
     return {
       messages: [
         { id: 1, message: "Привет, как дела?", sender: "Настя" },
         { id: 2, message: "Привет, хорошо", sender: "Кирилл Малышев" },
       ],
+      message: "",
     };
+  },
+  methods: {
+    onSend() {
+      this.messages.push({
+        id: this.messages.length + 1,
+        message: this.message,
+        sender: "Настя",
+      });
+      this.message = "";
+    },
   },
 };
 </script>
