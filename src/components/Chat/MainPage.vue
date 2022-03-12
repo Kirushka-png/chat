@@ -27,6 +27,14 @@
 export default {
   name: "Chat",
   props: {},
+  data() {
+    return {
+      messages: [
+        { id: 1, message: "Привет, как дела?", sender: "Настя" },
+        { id: 2, message: "Привет, хорошо", sender: "Кирилл Малышев" },
+      ],
+    };
+  },
 };
 </script>
 
