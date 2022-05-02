@@ -2,7 +2,7 @@
   <div id="chat" class="chat">
     <div class="chat_people">
       <div class="messages" id="messages">
-        <li v-for="message in messages" :key="message.id">
+        <li v-for="message in messages.slice().reverse()" :key="message.id">
           <div>{{ message.sender }} : {{ message.message }}</div>
         </li>
       </div>
@@ -83,9 +83,10 @@ export default {
 .messages {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   padding: 0 10px 10px 10px;
   gap: 7px;
+  overflow-y: auto;
 }
 .messages li {
   list-style-type: none;
