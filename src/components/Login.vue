@@ -1,9 +1,9 @@
 <template>
   <div id="authoriz" class="authoriz">
     <h>Войти в аккаунт</h>
-    <input v-model="message" type="text" class="item" placeholder="Логин" />
-    <input type="text" class="item" placeholder="Пароль" />
-    <button id="button_authoriz" class="button_authoriz" onclick="onLogin()">
+    <input v-model="username" type="text" class="item" placeholder="Логин" />
+    <input v-model="password" type="text" class="item" placeholder="Пароль" />
+    <button id="button_authoriz" class="button_authoriz" @click="onLogin()">
       Войти
     </button>
     <router-link to="/reg">
@@ -16,6 +16,19 @@
 export default {
   name: "Login",
   props: {},
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  methods: {
+    onLogin() {
+      if (true) {
+        document.location = "/chat"
+      }
+    },
+  },
 };
 </script>
 

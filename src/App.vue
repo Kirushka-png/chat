@@ -1,6 +1,21 @@
 <template>
-  <router-view/>
+  <router-view @login="onLogin"/>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      userData: {}
+    }
+  },
+  methods:{
+    onLogin(username, password){
+      userData = {username: username, password: password }
+    }
+  }
+}
+</script>
 
 <style>
 body {

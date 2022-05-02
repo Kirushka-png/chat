@@ -3,6 +3,8 @@ import Login from '@/components/Login.vue'
 import Reg from '@/components/Registration.vue'
 import MainPage from '@/components/Chat/MainPage.vue'
 
+let LoginProps
+
 const routes = [{
         path: '/login',
         name: 'login',

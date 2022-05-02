@@ -26,10 +26,9 @@
 </template>
 
 <script>
-import { onMounted } from "@vue/runtime-core";
 export default {
   name: "Chat",
-  props: {},
+  props: ['userData'],
   mounted() {
     document.getElementById("msgInput").addEventListener("keydown", (e) => {
       e.keyCode === 13 && this.onSend();
